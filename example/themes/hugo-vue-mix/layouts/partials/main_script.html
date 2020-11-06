@@ -1,0 +1,121 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
+
+<script>
+{{ $posts := slice }}
+{{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ $posts = $posts | append (dict "url" .Permalink "title" .Title "summary" .Summary "date" (.Params.Date.Format "2006-01-02") "tags" .Params.Tags "categories" .Params.Categories) }}
+{{ end }}
+
+{{ $tags := slice }}
+{{ range $key, $value := .Site.Taxonomies.tags }}
+  {{ $tags = $tags | append $key }}
+{{ end }}
+
+{{ $categories := slice }}
+{{ range $key, $value := .Site.Taxonomies.categories }}
+  {{ $categories = $categories | append $key }}
+{{ end }}
+
+
+  const posts = {{ $posts }}
+  const tags = {{ $tags }}
+  const categories = {{ $categories }}
+
+  
+  Vue.use(VueLoading);
+  Vue.component('loading', VueLoading)
+
+
+  var vm = new Vue({
+    delimiters: ['[[', ']]'],
+    el: '#app',
+    vuetify: new Vuetify(),
+    props: {
+    },
+    data: {
+      drawer: false,
+      panel: [],
+      page: null,
+      tab: null,
+      dialog: null,
+      model: null,
+      search: null,
+
+      tags: tags,
+      categories: categories,
+      posts: posts,
+      seltags: null,
+      selcategories: null,
+      tfilteredposts: [],
+      cfilteredposts: [],
+      
+    },
+
+    computed: {
+      items () {
+        if (this.search) {
+          return this.posts
+        }else{
+          return []
+        }
+      },
+    },
+
+    created () {
+      let loader = Vue.$loading.show()
+      setTimeout(loader.hide, 500)
+    },
+    
+
+  
+
+    methods: {
+      remove (item) {
+        this.seltags.splice(this.seltags.indexOf(item), 1)
+        this.seltags = [...this.seltags]
+      },
+    }
+  })
+
+  vm.$vuetify.theme.themes.light.primary = '#01579B'
+
+
+    vm.$watch(() => vm.seltags, (tags)=>{
+    var filteredposts = []
+    if (tags.length) {
+      for (const post of vm.posts) {
+          let checker = (arr, target) => target.every(v => arr.includes(v))
+         if (checker(post.tags, tags)) {
+              filteredposts.push(post)
+         }
+      }
+      vm.$set(vm.$data, 'tfilteredposts', filteredposts)
+    }else{
+      vm.$set(vm.$data, 'tfilteredposts', [])
+    }
+  })
+
+
+  vm.$watch(() => vm.selcategories, (categories)=>{
+    var filteredposts = []
+    if (categories.length) {
+      for (const post of vm.posts) {
+          let checker = (arr, target) => target.every(v => arr.includes(v))
+         if (checker(post.categories, categories)) {
+              filteredposts.push(post)
+         }
+      }
+      vm.$set(vm.$data, 'cfilteredposts', filteredposts)
+    }else{
+      vm.$set(vm.$data, 'cfilteredposts', [])
+    }
+  })
+
+
+
+</script>
+
+<script src="{{ "js/code-block.js" | absURL }}"></script>
+ 

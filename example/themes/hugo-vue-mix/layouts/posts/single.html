@@ -1,0 +1,144 @@
+{{ define "main" }}
+<v-row>
+  <v-col col="12">
+    <v-card class="lime lighten-5">
+      <v-card-title class="indigo lighten-4">
+        <div>
+          {{ .Title }}
+        </div>
+      </v-card-title>
+      <v-card-subtitle class="text-body-1 mt-0">
+        <div>
+          {{ .Date.Format "2006-01-02" }}
+          {{ if .Params.Categories }}
+            {{ range .Params.Categories }}
+              <a href="{{ $.Site.LanguagePrefix | absURL }}/categories/{{ . | urlize }}/">{{ . }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+        <div>
+          {{ if .Params.tags }}
+          {{ range .Params.tags }}
+            <v-chip
+              color="light-blue darken-2"
+              label
+              text-color="white"
+              x-small
+              href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/"
+            >
+              {{ . }}
+            </v-chip>
+          {{ end }}
+        {{ end }}
+        </div>
+      <v-divider></v-divider>
+      </v-card-subtitle>
+      <v-card-text class="text-body-1">
+        {{ .Content }}
+      </v-card-text>
+    </v-card>
+  </v-col>
+
+  
+
+
+  <v-col cols="12">
+    <div class="d-flex justify-space-between">
+      {{ if .PrevInSection }}
+      <v-tooltip top>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            href="{{ .PrevInSection.Permalink }}"
+            target="_blank"
+            v-on="on"
+            text
+          >
+            <v-icon>mdi-arrow-left</v-icon>
+            Prev Post
+          </v-btn>
+        </template>
+        <span>{{ .PrevInSection.Title }}</span>
+      </v-tooltip>
+    {{ else }}
+      <v-btn
+       text
+       disabled
+      >
+      <v-icon>mdi-arrow-left</v-icon>
+        Prev Post
+      </v-btn>
+    {{ end }}
+    
+    
+    {{ if .NextInSection }}
+    <v-tooltip top>
+      <template v-slot:activator="{ on }">
+        <v-btn
+          href="{{ .NextInSection.Permalink }}"
+          target="_blank"
+          v-on="on"
+          text
+        >
+          Next Post
+          <v-icon>mdi-arrow-right</v-icon>
+        </v-btn>
+      </template>
+      <span>{{ .NextInSection.Title }}</span>
+    </v-tooltip>
+    {{ else }}
+      <v-btn
+        text
+        disabled
+      >
+      Next Post
+        <v-icon>mdi-arrow-right</v-icon>
+      </v-btn>
+    {{ end }}
+    </div>
+  </v-col>
+
+  <v-col>
+    {{ if .Site.Params.showRelatedPosts }}
+      {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+        {{ $.Scratch.Set "has_related" true }}
+      {{ end }}
+      {{ if $.Scratch.Get "has_related" }}
+
+      <v-card class="lime lighten-5">
+        <v-card-title class="indigo lighten-4">
+          See Also
+        </v-card-title>
+        {{ $num_to_show := .Site.Params.related_content_limit | default 5 }}
+        {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title><a href="{{ .RelPermalink }}">{{ .Title }}</a></v-list-item-title>
+            <v-list-item-subtitle>{{ .Summary }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider></v-divider>
+        {{ end }}
+      </v-card>
+      {{ end }}
+    {{ end }}
+  </v-col>
+
+  <v-col cols="12">
+    <v-card class="lime lighten-5">
+      <v-card-text>
+        {{ template "_internal/disqus.html" . }}
+      </v-card-text>
+    </v-card>
+  </v-col>
+
+</v-row>
+
+
+
+
+
+
+
+{{ end }}
+
+

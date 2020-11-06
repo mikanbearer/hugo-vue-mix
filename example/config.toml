@@ -1,0 +1,29 @@
+title = "活到老學到死"
+theme = "hugo-vue-mix"
+metaDataFormat = "yaml"
+
+disqusShortname = "mikanmimi"
+
+disablePathToLower = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[Params]
+  subtitle = "要是能寫得下去就好了"
+  mainSections = ["post","posts"]
+  dateFormat = "January 2, 2006"
+  commit = false
+  rss = true
+  comments = true
+  readingTime = true
+  wordCount = true
+  socialShare = true
+  delayDisqus = true
+  showRelatedPosts = true
+  preserveTaxonomyNames = true
+
+[Author]
+  name = "Zhang San"
