@@ -1,3 +1,4 @@
+baseURL = "https://mikanbearer.github.io/hugo-vue-mix"
 title = "活到老學到死"
 theme = "hugo-vue-mix"
 metaDataFormat = "yaml"

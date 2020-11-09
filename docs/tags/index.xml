@@ -2,18 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 活到老學到死</title>
-    <link>/tags/</link>
+    <link>https://mikanbearer.github.io/hugo-vue-mix/tags/</link>
     <description>Recent content in Tags on 活到老學到死</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Jul 2020 13:27:20 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Hugo</title>
-      <link>/tags/Hugo/</link>
-      <pubDate>Fri, 10 Jul 2020 13:27:20 +0800</pubDate>
-      
-      <guid>/tags/Hugo/</guid>
-      <description></description>
-    </item>
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mikanbearer.github.io/hugo-vue-mix/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

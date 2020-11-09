@@ -9,8 +9,8 @@
 
   <link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3/dist/vue-loading.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/code-block.css" />
+  <link rel="stylesheet" href="https://mikanbearer.github.io/hugo-vue-mix/css/main.css" />
+  <link rel="stylesheet" href="https://mikanbearer.github.io/hugo-vue-mix/css/code-block.css" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   
@@ -122,7 +122,7 @@
                   label
                   text-color="white"
                   x-small
-                  :href="'tags/' + tag"
+                  :href="'https://mikanbearer.github.io/hugo-vue-mixtags/' + tag"
                   class="mr-1"
                 >
                   [[ tag ]]
@@ -212,7 +212,7 @@
                           text-color="white"
                           label
                           x-small
-                          :href="'tags/' + tag"
+                          :href="'https://mikanbearer.github.io/hugo-vue-mixtags/' + tag"
                           class="mr-1"
                         >
                           [[ tag ]]
@@ -223,7 +223,7 @@
                           text-color="grey lighten-3"
                           label
                           x-small
-                          :href="'tags/' + tag"
+                          :href="'https://mikanbearer.github.io/hugo-vue-mixtags/' + tag"
                           class="mr-1"
                         >
                           [[ tag ]]
@@ -270,7 +270,7 @@
                     <td>[[ post.date ]]</td>
                     <td>
                       <div v-for="category in post.categories" class="d-inline">
-                        <a :href="'categories/' + category">
+                        <a :href="'https://mikanbearer.github.io/hugo-vue-mixcategories/' + category">
                           [[ category ]]
                         </a>
                       </div>
@@ -299,14 +299,14 @@
 >
   <v-list>
     
-    <v-list-item link href="">
+    <v-list-item link href="https://mikanbearer.github.io/hugo-vue-mix">
       <v-list-item-action>
         <v-icon>mdi-home</v-icon>
       </v-list-item-action>
       <v-list-item-title>Home</v-list-item-title>
     </v-list-item>
   
-    <v-list-item link href="about">
+    <v-list-item link href="https://mikanbearer.github.io/hugo-vue-mix/about">
       <v-list-item-action>
         <v-icon>mdi-information</v-icon>
       </v-list-item-action>
@@ -319,7 +319,7 @@
   <v-list>
     <v-subheader class="mt-4">BLOG</v-subheader>
 
-    <v-list-item link href="posts">
+    <v-list-item link href="https://mikanbearer.github.io/hugo-vue-mix/posts">
       <v-list-item-action>
         <v-icon>mdi-file-document-multiple</v-icon>
       </v-list-item-action>
@@ -328,14 +328,14 @@
 
 
 
-    <v-list-item link href="tags">
+    <v-list-item link href="https://mikanbearer.github.io/hugo-vue-mix/tags">
       <v-list-item-action>
         <v-icon>mdi-tag-multiple</v-icon>
       </v-list-item-action>
       <v-list-item-title>Tags</v-list-item-title>
     </v-list-item>
 
-    <v-list-item link href="categories">
+    <v-list-item link href="https://mikanbearer.github.io/hugo-vue-mix/categories">
       <v-list-item-action>
         <v-icon>mdi-folder-multiple</v-icon>
       </v-list-item-action>
@@ -360,55 +360,9 @@
 <v-row dense>
 
   
-  <v-col cols=12>
-              
-    <v-card class="lime lighten-5">
-      <v-card-title class="indigo lighten-4">
-        <div>
-          紀念用的第一篇
-        </div>
-      </v-card-title>
-      <v-card-subtitle class="text-body-1 mt-0">
-        <div>
-          2020-07-10
-          
-            
-              <a href="/categories/%E9%9B%9C%E8%A8%98/">雜記</a>
-            
-          
-        </div>
-        <div>
-          
-          
-            <v-chip
-              color="light-blue darken-2"
-              label
-              text-color="white"
-              x-small
-              href="/tags/Hugo/"
-            >
-              Hugo
-            </v-chip>
-          
-        
-        </div>
-      <v-divider></v-divider>
-      </v-card-subtitle>
-      <v-card-text class="text-body-1">
-        <p>最近想把學習過程中碰到的小問題做些筆記，剛好又對static site generator有些興趣，
-就到<a href="https://www.staticgen.com/">https://www.staticgen.com/</a>找個人氣度高的來用，之後就選上了這個<strong>Hugo</strong>，
-雖然這個Beautiful Hugo的theme挺好看的，之後還是要改一下，首先還是先搞定code block…</p>
-        <div>
-          <v-btn href="/posts/2020/07/202007101327/" color="indigo accent-2" dark small>Read More</v-btn>
-        </div>
-      </v-card-text>
-    </v-card>
-
-  </v-col>
-
 
   <v-col cols=12>
-    <v-pagination v-model="page" :length="1"></v-pagination>
+    <v-pagination v-model="page" :length="0"></v-pagination>
   </v-col>
             
 
@@ -447,23 +401,17 @@
 <script>
 
 
-  
 
 
 
 
-  
 
 
 
 
-  
-
-
-
-  const posts = [{"categories":["雜記"],"date":"2020-07-10","summary":"\u003cp\u003e最近想把學習過程中碰到的小問題做些筆記，剛好又對static site generator有些興趣，\n就到\u003ca href=\"https://www.staticgen.com/\"\u003ehttps://www.staticgen.com/\u003c/a\u003e找個人氣度高的來用，之後就選上了這個\u003cstrong\u003eHugo\u003c/strong\u003e，\n雖然這個Beautiful Hugo的theme挺好看的，之後還是要改一下，首先還是先搞定code block…\u003c/p\u003e","tags":["Hugo"],"title":"紀念用的第一篇","url":"/posts/2020/07/202007101327/"}]
-  const tags = ["Hugo"]
-  const categories = ["雜記"]
+  const posts = []
+  const tags = []
+  const categories = []
 
   
   Vue.use(VueLoading);
@@ -559,7 +507,7 @@
 
 </script>
 
-<script src="js/code-block.js"></script>
+<script src="https://mikanbearer.github.io/hugo-vue-mix/js/code-block.js"></script>
  
 
 
@@ -569,7 +517,7 @@
     <script>
     vm.page =  1 
     vm.panel = [...Array( 10 ).keys()]
-    vm.$watch(() => vm.page, (newPage)=>{window.location.href = '\/page/' + newPage})
+    vm.$watch(() => vm.page, (newPage)=>{window.location.href = 'https:\/\/mikanbearer.github.io\/hugo-vue-mix\/page/' + newPage})
 </script>
   
 
