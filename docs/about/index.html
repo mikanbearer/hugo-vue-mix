@@ -447,17 +447,23 @@
 <script>
 
 
+  
 
 
 
 
+  
 
 
 
 
-  const posts = []
-  const tags = []
-  const categories = []
+  
+
+
+
+  const posts = [{"categories":["雜記"],"date":"2020-07-10","summary":"\u003cp\u003e最近想把學習過程中碰到的小問題做些筆記，剛好又對static site generator有些興趣，\n就到\u003ca href=\"https://www.staticgen.com/\"\u003ehttps://www.staticgen.com/\u003c/a\u003e找個人氣度高的來用，之後就選上了這個\u003cstrong\u003eHugo\u003c/strong\u003e，\n雖然這個Beautiful Hugo的theme挺好看的，之後還是要改一下，首先還是先搞定code block…\u003c/p\u003e","tags":["Hugo"],"title":"紀念用的第一篇","url":"https://mikanbearer.github.io/hugo-vue-mix/posts/2020/07/202007101327/"}]
+  const tags = ["Hugo"]
+  const categories = ["雜記"]
 
   
   Vue.use(VueLoading);
@@ -572,28 +578,48 @@
 <script>
     
     
+        
+    
+    
+    
+        
+    
+    
+    
+        
+            
+        
     
     
     
     
+        
+    
+    
+    
+        
+    
+    
+    
+        
+            
+        
     
     
     
     
+        
     
     
     
-    
-    
-    
-    
+        
     
     
     
 
 
 
-    const charts = {"categories_data":{"legend":[],"selected":{},"series":[]},"monthly_count":{"series":[],"x":[]},"tags_data":{"legend":[],"selected":{},"series":[]}}
+    const charts = {"categories_data":{"legend":["雜記"],"selected":{"雜記":true},"series":[{"name":"雜記","value":1}]},"monthly_count":{"series":[1],"x":["2020-07"]},"tags_data":{"legend":["Hugo"],"selected":{"Hugo":true},"series":[{"name":"Hugo","value":1}]}}
 
     const setPie = (title, series_name, data, element_id) => {
         var option = {
