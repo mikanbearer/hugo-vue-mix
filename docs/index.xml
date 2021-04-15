@@ -4,6 +4,36 @@
     <title>活到老學到死</title>
     <link>https://mikanbearer.github.io/hugo-vue-mix/</link>
     <description>Recent content on 活到老學到死</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://mikanbearer.github.io/hugo-vue-mix/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 10 Aug 2020 13:28:20 +0800</lastBuildDate><atom:link href="https://mikanbearer.github.io/hugo-vue-mix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Demo用的第二篇</title>
+      <link>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/202008101328/</link>
+      <pubDate>Mon, 10 Aug 2020 13:28:20 +0800</pubDate>
+      
+      <guid>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/202008101328/</guid>
+      <description>&lt;p&gt;只是為了展示About頁的圖表，其實沒什麼內容&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Demo的第二篇</title>
+      <link>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/202008101327/</link>
+      <pubDate>Mon, 10 Aug 2020 13:27:20 +0800</pubDate>
+      
+      <guid>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/202008101327/</guid>
+      <description>&lt;p&gt;只是為了展示About頁的圖表，其實沒什麼內容&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>紀念用的第一篇</title>
+      <link>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/07/202007101327/</link>
+      <pubDate>Fri, 10 Jul 2020 13:27:20 +0800</pubDate>
+      
+      <guid>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/07/202007101327/</guid>
+      <description>&lt;p&gt;最近想把學習過程中碰到的小問題做些筆記，剛好又對static site generator有些興趣，
+就到&lt;a href=&#34;https://www.staticgen.com/&#34;&gt;https://www.staticgen.com/&lt;/a&gt;找個人氣度高的來用，之後就選上了這個&lt;strong&gt;Hugo&lt;/strong&gt;，
+雖然這個Beautiful Hugo的theme挺好看的，之後還是要改一下，首先還是先搞定code block…&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

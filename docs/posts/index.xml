@@ -5,7 +5,25 @@
     <link>https://mikanbearer.github.io/hugo-vue-mix/posts/</link>
     <description>Recent content in Posts on 活到老學到死</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Jul 2020 13:27:20 +0800</lastBuildDate><atom:link href="https://mikanbearer.github.io/hugo-vue-mix/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Aug 2020 13:28:20 +0800</lastBuildDate><atom:link href="https://mikanbearer.github.io/hugo-vue-mix/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Demo用的第二篇</title>
+      <link>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/202008101328/</link>
+      <pubDate>Mon, 10 Aug 2020 13:28:20 +0800</pubDate>
+      
+      <guid>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/202008101328/</guid>
+      <description>&lt;p&gt;只是為了展示About頁的圖表，其實沒什麼內容&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Demo的第二篇</title>
+      <link>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/202008101327/</link>
+      <pubDate>Mon, 10 Aug 2020 13:27:20 +0800</pubDate>
+      
+      <guid>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/202008101327/</guid>
+      <description>&lt;p&gt;只是為了展示About頁的圖表，其實沒什麼內容&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>紀念用的第一篇</title>
       <link>https://mikanbearer.github.io/hugo-vue-mix/posts/2020/07/202007101327/</link>
