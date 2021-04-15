@@ -2,14 +2,14 @@
 <html>
   {{- partial "head.html" . -}}
   <body>
-    <div id="app">
+    <div id="app" v-cloak>
       <v-app id="inspire">
         <v-fade-transition>
         <v-sheet class="overflow-hidden">
           {{ partial "header.html" . }}
           {{ partial "navigation" . }}
           <v-sheet max-height="100vh" class="overflow-y-auto" id="main">
-            <v-main>
+            <v-main style="background-color: transparent;">
               <v-container fluid style="width: 1200px">
                 {{- block "main" . }}{{- end }}
               </v-container>

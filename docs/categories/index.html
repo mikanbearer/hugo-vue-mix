@@ -14,12 +14,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   
   <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      background-attachment: fixed;
+      top: 0;
+      left: 0;
+      background-size: cover;
+      background-color: #272727;
+    }
 
   </style>
 
 </head>
 <body>
-    <div id="app">
+    <div id="app" v-cloak>
       <v-app id="inspire">
         <v-fade-transition>
         <v-sheet class="overflow-hidden">
@@ -32,13 +45,13 @@
   scroll-target="#main"
   scroll-threshold="500"
   dark
-  color="#6A76AB"
+  color="#6b6f59"
   src="https://picsum.photos/1920/1080?random"
 >
   <template v-slot:img="{ props }">
     <v-img
       v-bind="props"
-      gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
+      gradient="to top right, rgba(90,84,75,.7), rgba(86,86,75,.7)"
     ></v-img>
   </template>
 
@@ -117,7 +130,7 @@
                 <v-chip
                   v-for="tag in model.tags"
                   v-bind:key="tag.id"
-                  color="indigo accent-2"
+                  color="accent accent-2"
                   label
                   text-color="white"
                   x-small
@@ -207,7 +220,7 @@
                       <div v-for="tag in post.tags" class="d-inline">
                         <v-chip
                           v-if="seltags.includes(tag)"
-                          color="indigo accent-3"
+                          color="accent accent-3"
                           text-color="white"
                           label
                           x-small
@@ -218,7 +231,7 @@
                         </v-chip>
                         <v-chip
                           v-else
-                          color="indigo accent-1"
+                          color="accent accent-1"
                           text-color="grey lighten-3"
                           label
                           x-small
@@ -354,53 +367,12 @@
 
     
           <v-sheet max-height="100vh" class="overflow-y-auto" id="main">
-            <v-main>
+            <v-main style="background-color: transparent;">
               <v-container fluid style="width: 1200px">
 <v-row>
   <v-col cols="12">
     <v-expansion-panels focusable>
       
-      
-      <v-expansion-panel>
-        <v-expansion-panel-header class="indigo lighten-4">
-          <div class="text-h6">
-            <v-badge content="1" color="warning">
-              雜記
-            </v-badge>
-          </div>
-        </v-expansion-panel-header>
-        <v-expansion-panel-content class="lime lighten-5">
-          <v-simple-table class="transparent">
-            <template>
-              <tbody>
-                
-                <tr>
-                  <td>2020-07-10</td>
-                  <td>
-                  
-                    
-                    <v-chip
-                      color="indigo accent-2"
-                      label
-                      text-color="white"
-                      x-small
-                      href="https://mikanbearer.github.io/hugo-vue-mixtags/Hugo/"
-                    >
-                      Hugo
-                    </v-chip>
-                    
-                  
-                  
-                  
-                  </td>
-                  <td><a href="https://mikanbearer.github.io/hugo-vue-mix/posts/2020/07/202007101327/">紀念用的第一篇</a></td>
-                </tr>
-                
-              </tbody>
-              </template>
-          </v-simple-table>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
       
     </v-expansion-panels>
   </v-col>
@@ -408,7 +380,7 @@
 
               </v-container>
             </v-main>
-            <v-footer padless class="mt-5">
+            <v-footer padless class="mt-5 white">
   <v-col
     class="text-center text-body-2"
     cols="12"
@@ -435,34 +407,32 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
+<script src="https://mikanbearer.github.io/hugo-vue-mix/js/code-block.js"></script>
 
 <script>
+  
+  
+  
 
+  
+  
+  
 
+  
+  
   
 
 
-
-
-  
-
-
-
+  const posts = []
+  const tags = []
+  const categories = []
 
   
-
-
-
-  const posts = [{"categories":["雜記"],"date":"2020-07-10","summary":"\u003cp\u003e最近想把學習過程中碰到的小問題做些筆記，剛好又對static site generator有些興趣，\n就到\u003ca href=\"https://www.staticgen.com/\"\u003ehttps://www.staticgen.com/\u003c/a\u003e找個人氣度高的來用，之後就選上了這個\u003cstrong\u003eHugo\u003c/strong\u003e，\n雖然這個Beautiful Hugo的theme挺好看的，之後還是要改一下，首先還是先搞定code block…\u003c/p\u003e","tags":["Hugo"],"title":"紀念用的第一篇","url":"https://mikanbearer.github.io/hugo-vue-mix/posts/2020/07/202007101327/"}]
-  const tags = ["Hugo"]
-  const categories = ["雜記"]
-
-  
-  Vue.use(VueLoading);
+  Vue.use(VueLoading)
   Vue.component('loading', VueLoading)
 
-
-  var vm = new Vue({
+  
+  let vm = new Vue({
     delimiters: ['[[', ']]'],
     el: '#app',
     vuetify: new Vuetify(),
@@ -513,11 +483,20 @@
     }
   })
 
-  vm.$vuetify.theme.themes.light.primary = '#01579B'
+  vm.$vuetify.theme.themes.light.primary = '#82ae46'
+  vm.$vuetify.theme.themes.light.secondary = '#01579B'
+  vm.$vuetify.theme.themes.light.accent = '#f8b500'
+  vm.$vuetify.theme.themes.light.error = '#01579B'
+  vm.$vuetify.theme.themes.light.info = '#01579B'
+  vm.$vuetify.theme.themes.light.success = '#01579B'
+  vm.$vuetify.theme.themes.light.warning = '#c97586'
+
+  
 
 
-    vm.$watch(() => vm.seltags, (tags)=>{
-    var filteredposts = []
+  
+  vm.$watch(() => vm.seltags, (tags)=>{
+    let filteredposts = []
     if (tags.length) {
       for (const post of vm.posts) {
           let checker = (arr, target) => target.every(v => arr.includes(v))
@@ -531,9 +510,9 @@
     }
   })
 
-
+  
   vm.$watch(() => vm.selcategories, (categories)=>{
-    var filteredposts = []
+    let filteredposts = []
     if (categories.length) {
       for (const post of vm.posts) {
           let checker = (arr, target) => target.every(v => arr.includes(v))
@@ -551,7 +530,7 @@
 
 </script>
 
-<script src="https://mikanbearer.github.io/hugo-vue-mix/js/code-block.js"></script>
+
  
 
 
