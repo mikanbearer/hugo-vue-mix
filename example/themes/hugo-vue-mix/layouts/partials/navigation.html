@@ -6,13 +6,13 @@
   scroll-target="#main"
   scroll-threshold="500"
   dark
-  color="#6b6f59"
+  color="#6A76AB"
   src="https://picsum.photos/1920/1080?random"
 >
   <template v-slot:img="{ props }">
     <v-img
       v-bind="props"
-      gradient="to top right, rgba(90,84,75,.7), rgba(86,86,75,.7)"
+      gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
     ></v-img>
   </template>
 
@@ -91,7 +91,7 @@
                 <v-chip
                   v-for="tag in model.tags"
                   v-bind:key="tag.id"
-                  color="accent accent-2"
+                  color="indigo accent-2"
                   label
                   text-color="white"
                   x-small
@@ -181,7 +181,7 @@
                       <div v-for="tag in post.tags" class="d-inline">
                         <v-chip
                           v-if="seltags.includes(tag)"
-                          color="accent accent-3"
+                          color="indigo accent-3"
                           text-color="white"
                           label
                           x-small
@@ -192,7 +192,7 @@
                         </v-chip>
                         <v-chip
                           v-else
-                          color="accent accent-1"
+                          color="indigo accent-1"
                           text-color="grey lighten-3"
                           label
                           x-small

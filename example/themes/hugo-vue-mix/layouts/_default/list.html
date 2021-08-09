@@ -1,9 +1,9 @@
 {{ define "main" }}
 <v-row>
   <v-col cols="12">
-    <v-simple-table class="white">
+    <v-simple-table class="lime lighten-5">
       <template>
-        <thead class="accent lighten-4">
+        <thead class="indigo lighten-4">
           <tr>
             <th>Date</th>
             <th>Category</th>
@@ -31,7 +31,7 @@
           {{ if .Params.Tags }}
           {{ range .Params.Tags }}
           <v-chip
-            color="accent accent-2"
+            color="indigo accent-2"
             label
             text-color="white"
             x-small

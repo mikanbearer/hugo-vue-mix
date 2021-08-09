@@ -1,8 +1,8 @@
 {{ define "main" }}
 <v-row>
   <v-col col="12">
-    <v-card class="white">
-      <v-card-title class="accent lighten-4">
+    <v-card class="lime lighten-5">
+      <v-card-title class="indigo lighten-4">
         <div>
           {{ .Title }}
         </div>
@@ -20,7 +20,7 @@
           {{ if .Params.tags }}
           {{ range .Params.tags }}
             <v-chip
-              color="warning"
+              color="blue-grey"
               label
               text-color="white"
               x-small
@@ -104,8 +104,8 @@
       {{ end }}
       {{ if $.Scratch.Get "has_related" }}
 
-      <v-card class="white">
-        <v-card-title class="accent lighten-4">
+      <v-card class="lime lighten-5">
+        <v-card-title class="indigo lighten-4">
           See Also
         </v-card-title>
         {{ $num_to_show := .Site.Params.related_content_limit | default 5 }}
@@ -124,7 +124,7 @@
   </v-col>
 
   <v-col cols="12">
-    <v-card class="white">
+    <v-card class="lime lighten-5">
       <v-card-text>
         {{ template "_internal/disqus.html" . }}
       </v-card-text>

@@ -4,8 +4,8 @@
   {{ range $pag.Pages }}
   <v-col cols=12>
               
-    <v-card class="white">
-      <v-card-title class="accent lighten-4">
+    <v-card class="lime lighten-5">
+      <v-card-title class="indigo lighten-4">
         <div>
           {{ .Title }}
         </div>
@@ -23,7 +23,7 @@
           {{ if .Params.tags }}
           {{ range .Params.tags }}
             <v-chip
-              color="warning"
+              color="light-blue darken-2"
               label
               text-color="white"
               x-small
@@ -39,7 +39,7 @@
       <v-card-text class="text-body-1">
         {{ .Summary }}
         <div>
-          <v-btn href="{{ .Permalink }}" color="accent accent-2" dark small>Read More</v-btn>
+          <v-btn href="{{ .Permalink }}" color="indigo accent-2" dark small>Read More</v-btn>
         </div>
       </v-card-text>
     </v-card>

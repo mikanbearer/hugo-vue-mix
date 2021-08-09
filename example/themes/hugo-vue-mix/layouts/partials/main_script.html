@@ -1,26 +1,22 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
-<script src="{{ "js/code-block.js" | absURL }}"></script>
 
 <script>
-  {{/* 產生貼文列表array */}}
-  {{ $posts := slice }}
-  {{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
-    {{ $posts = $posts | append (dict "url" .Permalink "title" .Title "summary" .Summary "date" (.Params.Date.Format "2006-01-02") "tags" .Params.Tags "categories" .Params.Categories) }}
-  {{ end }}
+{{ $posts := slice }}
+{{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ $posts = $posts | append (dict "url" .Permalink "title" .Title "summary" .Summary "date" (.Params.Date.Format "2006-01-02") "tags" .Params.Tags "categories" .Params.Categories) }}
+{{ end }}
 
-  {{/* 產生貼文標籤array */}}
-  {{ $tags := slice }}
-  {{ range $key, $value := .Site.Taxonomies.tags }}
-    {{ $tags = $tags | append $key }}
-  {{ end }}
+{{ $tags := slice }}
+{{ range $key, $value := .Site.Taxonomies.tags }}
+  {{ $tags = $tags | append $key }}
+{{ end }}
 
-  {{/* 產生貼文分類array */}}
-  {{ $categories := slice }}
-  {{ range $key, $value := .Site.Taxonomies.categories }}
-    {{ $categories = $categories | append $key }}
-  {{ end }}
+{{ $categories := slice }}
+{{ range $key, $value := .Site.Taxonomies.categories }}
+  {{ $categories = $categories | append $key }}
+{{ end }}
 
 
   const posts = {{ $posts }}
@@ -28,11 +24,11 @@
   const categories = {{ $categories }}
 
   
-  Vue.use(VueLoading)
+  Vue.use(VueLoading);
   Vue.component('loading', VueLoading)
 
-  // Vue instance
-  let vm = new Vue({
+
+  var vm = new Vue({
     delimiters: ['[[', ']]'],
     el: '#app',
     vuetify: new Vuetify(),
@@ -83,20 +79,11 @@
     }
   })
 
-  vm.$vuetify.theme.themes.light.primary = '#82ae46'
-  vm.$vuetify.theme.themes.light.secondary = '#01579B'
-  vm.$vuetify.theme.themes.light.accent = '#f8b500'
-  vm.$vuetify.theme.themes.light.error = '#01579B'
-  vm.$vuetify.theme.themes.light.info = '#01579B'
-  vm.$vuetify.theme.themes.light.success = '#01579B'
-  vm.$vuetify.theme.themes.light.warning = '#c97586'
-
-  
+  vm.$vuetify.theme.themes.light.primary = '#01579B'
 
 
-  // 監視貼文搜尋標籤
-  vm.$watch(() => vm.seltags, (tags)=>{
-    let filteredposts = []
+    vm.$watch(() => vm.seltags, (tags)=>{
+    var filteredposts = []
     if (tags.length) {
       for (const post of vm.posts) {
           let checker = (arr, target) => target.every(v => arr.includes(v))
@@ -110,9 +97,9 @@
     }
   })
 
-  // 監視貼文搜尋分類
+
   vm.$watch(() => vm.selcategories, (categories)=>{
-    let filteredposts = []
+    var filteredposts = []
     if (categories.length) {
       for (const post of vm.posts) {
           let checker = (arr, target) => target.every(v => arr.includes(v))
@@ -130,5 +117,5 @@
 
 </script>
 
-
+<script src="{{ "js/code-block.js" | absURL }}"></script>
  

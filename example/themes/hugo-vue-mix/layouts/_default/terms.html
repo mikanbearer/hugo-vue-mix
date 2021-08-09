@@ -5,14 +5,14 @@
       {{ $type := .Type }}
       {{ range $key, $value := .Data.Terms.ByCount }}
       <v-expansion-panel>
-        <v-expansion-panel-header class="accent lighten-4">
+        <v-expansion-panel-header class="indigo lighten-4">
           <div class="text-h6">
             <v-badge content="{{ $value.Count }}" color="warning">
               {{ $value.Page.Title }}
             </v-badge>
           </div>
         </v-expansion-panel-header>
-        <v-expansion-panel-content class="white">
+        <v-expansion-panel-content class="lime lighten-5">
           <v-simple-table class="transparent">
             <template>
               <tbody>
@@ -23,7 +23,7 @@
                   {{ if eq $type "categories" }}
                     {{ range .Params.Tags }}
                     <v-chip
-                      color="accent accent-2"
+                      color="indigo accent-2"
                       label
                       text-color="white"
                       x-small
